@@ -1,0 +1,55 @@
+.deps/
+
+# Build output directories
+build/
+Build-*/
+cmake-build*/
+out/
+dist/
+target/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+
+# Visual Studio generated files
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.vcproj
+*.opensdf
+*.sdf
+*.db
+*.VC.db
+*.VC.opendb
+*.ipch
+*.pdb
+*.ilk
+*.exp
+*.idb
+*.obj
+*.tlog
+*.lastbuildstate
+
+# Binary artifacts
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.dylib
+*.o
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo

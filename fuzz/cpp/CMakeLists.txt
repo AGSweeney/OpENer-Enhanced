@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.16)
+project(plc_rate_client LANGUAGES CXX)
+
+add_executable(plc_rate_client plc_rate_client.cpp)
+add_executable(assembly_monitor assembly_monitor.cpp)
+target_compile_features(plc_rate_client PRIVATE cxx_std_20)
+target_compile_features(assembly_monitor PRIVATE cxx_std_20)
+
+if(MSVC)
+  target_compile_options(plc_rate_client PRIVATE /W4 /EHsc)
+  target_compile_options(assembly_monitor PRIVATE /W4 /EHsc)
+else()
+  target_compile_options(plc_rate_client PRIVATE -Wall -Wextra -Wpedantic)
+  target_compile_options(assembly_monitor PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+if(WIN32)
+  target_link_libraries(plc_rate_client PRIVATE ws2_32 winmm)
+  target_link_libraries(assembly_monitor PRIVATE ws2_32 winmm)
+endif()
