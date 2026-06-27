@@ -13,7 +13,7 @@
 #include "ciptypes.h"
 #include "ciperror.h"
 
-#if defined(STM32) || defined(CLEARCORE) || defined(ESP32)	/** STM32/ClearCore/ESP32 target -> uses a struct for the network interface */
+#if defined(STM32) || defined(CLEARCORE) || defined(ESP32) || defined(NETBURNER)	/** STM32/ClearCore/ESP32/NetBurner target -> uses a struct for the network interface */
 #define TcpIpInterface struct netif
 #else		/** other targets -> string for the network interface */
 #define TcpIpInterface const char
@@ -69,7 +69,7 @@ EipStatus IfaceWaitForIp(TcpIpInterface *const iface,
                          int timeout,
                          volatile int *const abort_wait);
 
-#if defined(STM32) || defined(CLEARCORE) || defined(ESP32)  /** STM32/ClearCore/ESP32 target, the hostname is linked to the network interface */
+#if defined(STM32) || defined(CLEARCORE) || defined(ESP32) || defined(NETBURNER)  /** STM32/ClearCore/ESP32/NetBurner target, the hostname is linked to the network interface */
 /** @ingroup CIP_API
  * @brief Get host name from platform
  *

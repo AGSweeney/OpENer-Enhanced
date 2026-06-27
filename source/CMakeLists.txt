@@ -84,7 +84,7 @@ add_definitions(-DPC_OPENER_ETHERNET_BUFFER_SIZE=${OPENER_ETHERNET_BUFFER_SIZE} 
 #######################################
 # Platform switches                   #
 #######################################
-set( OpENer_KNOWN_PLATFORMS "POSIX" "WIN32" "MINGW" "ClearCore" "ESP32" "RTEMS")
+set( OpENer_KNOWN_PLATFORMS "POSIX" "WIN32" "MINGW" "ClearCore" "ESP32" "RTEMS" "NetBurner")
 
 set( OpENer_PLATFORM CACHE STRING "Platform OpENer will be built for" )
 set_property(CACHE OpENer_PLATFORM PROPERTY STRINGS ${OpENer_KNOWN_PLATFORMS} )
@@ -133,6 +133,9 @@ if (DOXYGEN_FOUND)
     endif ()
     if (NOT (${OpENer_PLATFORM} STREQUAL "RTEMS"))
         set(OpENer_EXCLUDE_PATTERNS "${OpENer_EXCLUDE_PATTERNS} */src/ports/RTEMS/*")
+    endif ()
+    if (NOT (${OpENer_PLATFORM} STREQUAL "NetBurner"))
+        set(OpENer_EXCLUDE_PATTERNS "${OpENer_EXCLUDE_PATTERNS} */src/ports/NetBurner/*")
     endif ()
 
     # request to configure the file
